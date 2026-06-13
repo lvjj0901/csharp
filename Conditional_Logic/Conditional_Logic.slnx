@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Conditional_Logic/Conditional_Logic.csproj" />
+  <Project Path="Loop/Loop.csproj" />
+</Solution>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Enums/Enums.csproj" />
+  <Project Path="Pattern/Pattern.csproj" />
+  <Project Path="SwitchExpression/SwitchExpression.csproj" />
+</Solution>

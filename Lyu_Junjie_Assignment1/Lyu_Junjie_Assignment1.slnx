@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="CompoundInterest/CompoundInterest.csproj" />
+  <Project Path="HumberCafe/HumberCafe.csproj" />
+  <Project Path="NumberAnalyzer/NumberAnalyzer.csproj" />
+  <Project Path="ReportCard/ReportCard.csproj" />
+  <Project Path="TemperatureConverter/TemperatureConverter.csproj" />
+</Solution>
