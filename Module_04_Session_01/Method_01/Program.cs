@@ -81,6 +81,7 @@ public class ParamsExample
     public static void Main(string[] args)
     {
         printNumbers(1,2,3);
+        printNumbers(1);
     }
 
     private static void printNumbers(params int[] numbers)
@@ -91,6 +92,24 @@ public class ParamsExample
         }
 
     }
+}
+
+//return value and tuple
+public class TupleExample 
+{
+    //single return value
+    decimal Tax(decimal x) => x * 0.15m;
+    //void - does something, returns nothing
+    void print(string msg) => Console.WriteLine(msg);
+
+    //tuple for muitiple returns
+    (string name, int age) ParseRecord(string line)
+    { 
+        var parts = line.Split(',');
+        return (parts[0], int.Parse(parts[1]));
+    }
+
+    //var (name,age) = ParseRecord("Alice,30");
 }
 
 //method overloading
