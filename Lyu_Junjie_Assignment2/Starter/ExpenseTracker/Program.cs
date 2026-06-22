@@ -58,6 +58,10 @@ do
     }
 } while (!checkMenuChoice);
 
+
+decimal monthlyBudget;
+decimal expense = 0.0m;
+
 switch (menuChoice)
 {
     case 1:
@@ -79,7 +83,6 @@ void SetMonthlyBudget()
 {
     Console.WriteLine("Monthly budget:");
     string input = Console.ReadLine();
-    decimal monthlyBudget;
     bool checkMonthlyBudget = false;
     do
     {
@@ -92,6 +95,9 @@ void SetMonthlyBudget()
         try
         {
             monthlyBudget = BudgetRules.ValidateAmount(monthlyBudget);
+            string budgetStatus = BudgetRules.BudgetStatus(monthlyBudget-expense,monthlyBudget);
+            Console.WriteLine($"Budget set to {monthlyBudget:C2}");
+            Console.Write($"  Budget: {monthlyBudget - expense:C2} remaining of {monthlyBudget:C2} -> {budgetStatus}");
             checkMonthlyBudget = true;
         }
         catch (InvalidExpenseException ex)

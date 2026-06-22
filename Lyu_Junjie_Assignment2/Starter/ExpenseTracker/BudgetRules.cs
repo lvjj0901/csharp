@@ -12,6 +12,8 @@
 //  Work one method at a time. Run the tests, watch them turn green.
 //  All methods are pure: no Console I/O, no shared state.
 // =====================================================================
+using System.Reflection.Metadata.Ecma335;
+
 namespace ExpenseTracker;
 
 public static class BudgetRules
@@ -71,7 +73,27 @@ public static class BudgetRules
     public static string BudgetStatus(decimal remaining, decimal monthlyLimit)
     {
         // TODO
-        throw new NotImplementedException();
+        if (monthlyLimit <= 0)
+        {
+            throw new InvalidExpenseException("Monthly limit must be a positive value.");
+        }
+        else 
+        {
+            if (remaining < 0)
+            {
+                return "OVER BUDGET";
+            }
+            else if (remaining < monthlyLimit * 0.1m)
+            {
+                return "Almost out";
+            }
+            else
+            {
+                return "On track";
+            }
+        }
+
+
     }
 
     /// <summary>
