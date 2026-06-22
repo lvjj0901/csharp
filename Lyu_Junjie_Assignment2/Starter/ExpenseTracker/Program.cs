@@ -81,14 +81,14 @@ switch (menuChoice)
 
 void SetMonthlyBudget()
 {
-    Console.WriteLine("Monthly budget:");
+    Console.Write("Monthly budget:");
     string input = Console.ReadLine();
     bool checkMonthlyBudget = false;
     do
     {
         while (!decimal.TryParse(input, out monthlyBudget))
         {
-            Console.WriteLine("Invalid input. Please enter a valid amount: ");
+            Console.Write("Invalid input. Please enter a valid amount: ");
             Console.Write("> ");
             input = Console.ReadLine();
         }
@@ -103,7 +103,7 @@ void SetMonthlyBudget()
         catch (InvalidExpenseException ex)
         {
             Console.WriteLine(ex.Message);
-            Console.WriteLine("Please enter a valid amount: ");
+            Console.Write("Please enter a valid amount: ");
             Console.Write("> ");
             input = Console.ReadLine();
             checkMonthlyBudget = false;
