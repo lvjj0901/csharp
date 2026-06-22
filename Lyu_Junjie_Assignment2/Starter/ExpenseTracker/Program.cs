@@ -20,6 +20,7 @@
 //  See section 6 of the assignment brief for a sample run to aim for.
 // =====================================================================
 using ExpenseTracker;
+using System.Runtime.CompilerServices;
 string menuUI = """
     ============================================================
                     MyBudget Expense Tracker
@@ -66,10 +67,40 @@ switch (menuChoice)
         Console.WriteLine("View summary");
         break;
     case 3:
-        Console.WriteLine("Set monthly budget");
+        SetMonthlyBudget();
         break;
     case 4:
         Console.WriteLine("See you later!");
         Environment.Exit(0);
         break;
+}
+
+void SetMonthlyBudget()
+{
+    Console.WriteLine("Monthly budget:");
+    string input = Console.ReadLine();
+    decimal monthlyBudget;
+    bool checkMonthlyBudget = false;
+    do
+    {
+        while (!decimal.TryParse(input, out monthlyBudget))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid amount: ");
+            Console.Write("> ");
+            input = Console.ReadLine();
+        }
+        try
+        {
+            monthlyBudget = BudgetRules.ValidateAmount(monthlyBudget);
+            checkMonthlyBudget = true;
+        }
+        catch (InvalidExpenseException ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("Please enter a valid amount: ");
+            Console.Write("> ");
+            input = Console.ReadLine();
+            checkMonthlyBudget = false;
+        }
+    } while (!checkMonthlyBudget);
 }
