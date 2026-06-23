@@ -21,64 +21,67 @@
 // =====================================================================
 using ExpenseTracker;
 using System.Runtime.CompilerServices;
-string menuUI = """
+string bannerUI = """
     ============================================================
                     MyBudget Expense Tracker
     ============================================================
-
-    1) Add an expense  2) View summary  3) Set monthly budget  4) Exit
-    
     """;
-Console.WriteLine(menuUI);
-
-// Delete the line above and implement the application here.
-Console.Write("> ");
-string menu = Console.ReadLine();
-int menuChoice;
-bool checkMenuChoice = false;
-do 
-{ 
-    while (!int.TryParse(menu, out menuChoice))
-    {
-        Console.WriteLine("Invalid input. Please enter a number(1-4): ");
-        Console.Write("> ");
-        menu = Console.ReadLine();
-    }
-
-    if (menuChoice >0 && menuChoice < 5)
-    {
-        checkMenuChoice = true;
-    }
-    else
-    {
-        Console.WriteLine("Invalid input. Please enter a number(1-4): ");
-        Console.Write("> ");
-        menu = Console.ReadLine();
-        checkMenuChoice = false;
-    }
-} while (!checkMenuChoice);
-
-
-decimal monthlyBudget;
+Console.WriteLine(bannerUI);
+decimal monthlyBudget = 0.0m;
 decimal expense = 0.0m;
 
-switch (menuChoice)
+bool exitFlag = false;
+while (!exitFlag)
 {
-    case 1:
-        Console.WriteLine("Add an expense");
-        break;
-    case 2:
-        Console.WriteLine("View summary");
-        break;
-    case 3:
-        SetMonthlyBudget();
-        break;
-    case 4:
-        Console.WriteLine("See you later!");
-        Environment.Exit(0);
-        break;
-}
+    string menuUI = """ 
 
+
+                    1) Add an expense  2) View summary  3) Set monthly budget  4) Exit
+                    """;
+    Console.WriteLine(menuUI);
+    Console.Write("> ");
+    string menu = Console.ReadLine();
+    int menuChoice;
+    bool checkMenuChoice = false;
+    do
+    {
+        while (!int.TryParse(menu, out menuChoice))
+        {
+            Console.WriteLine("Invalid input. Please enter a number(1-4): ");
+            Console.Write("> ");
+            menu = Console.ReadLine();
+        }
+
+        if (menuChoice > 0 && menuChoice < 5)
+        {
+            checkMenuChoice = true;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a number(1-4): ");
+            Console.Write("> ");
+            menu = Console.ReadLine();
+            checkMenuChoice = false;
+        }
+    } while (!checkMenuChoice);
+
+    switch (menuChoice)
+    {
+        case 1:
+            Console.WriteLine("Add an expense,monthlyBudget="+ monthlyBudget);
+            break;
+        case 2:
+            Console.WriteLine("View summary");
+            break;
+        case 3:
+            SetMonthlyBudget();
+            break;
+        case 4:
+            Console.WriteLine("See you later!");
+            exitFlag = true;
+            break;
+    }
+}
 void SetMonthlyBudget()
 {
     Console.Write("Monthly budget:");
