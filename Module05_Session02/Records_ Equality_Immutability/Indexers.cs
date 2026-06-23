@@ -1,6 +1,6 @@
 ﻿//Week week = new Week();
 //Console.WriteLine(week[0]);
-public class Week 
+public class Week  
 { 
     private readonly string[] days = new string[] 
                                     { 
