@@ -138,7 +138,14 @@ void AddExpense()
     } while (!checkInput);
 
     //check category and store category
-    Console.Write("Category    : [Food/Transport/Utilities/Entertainment/Other] ");
+    string[] categories ={"Food","Transport","Utilities","Entertainment","Other"};
+    Console.Write("Categories:[");
+    foreach (var categoryName in categories[..^1])   // Range
+    {
+        Console.Write($"{categoryName}/");
+    }
+    Console.Write($"{categories[^1]}] ");   // Index from end
+
     input = Console.ReadLine();
     do
     {

@@ -122,20 +122,14 @@ public static class BudgetRules
     /// Formats an amount as currency using the default "$" symbol.
     /// Implement this as an expression-bodied member that calls the overload.
     /// </summary>
-    public static string FormatCurrency(decimal amount)
-    {
-        // TODO: return FormatCurrency(amount, "$");
-        return FormatCurrency(amount, "$");
-    }
+    public static string FormatCurrency(decimal amount) => FormatCurrency(amount, "$");
+  
 
     /// <summary>
     /// Formats an amount as currency using the given symbol, e.g. "$62.40".
     /// </summary>
-    public static string FormatCurrency(decimal amount, string currencySymbol)
-    {
-        // TODO: use a "0.00" format string
-        return $"{currencySymbol}{amount:0.00}";
-    }
+    public static string FormatCurrency(decimal amount, string currencySymbol) => $"{currencySymbol}{amount:F2}";
+   
 }
 
 /// <summary>
