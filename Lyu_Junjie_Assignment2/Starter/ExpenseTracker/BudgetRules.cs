@@ -49,7 +49,21 @@ public static class BudgetRules
     public static string ClassifyAmount(decimal amount)
     {
         // TODO
-        throw new NotImplementedException();
+        if (amount <= 0)
+        {
+            throw new InvalidExpenseException("Amount must be a positive value.");
+        }
+        else 
+        {
+            return amount switch
+            {
+                < 10 => "Micro",
+                < 50 => "Small",
+                < 200 => "Medium",
+                _ => "Large"
+            };
+        }
+
     }
 
     /// <summary>
@@ -62,7 +76,15 @@ public static class BudgetRules
     public static string? NormalizeCategory(string? input)
     {
         // TODO
-        throw new NotImplementedException();
+        return input?.Trim().ToLower() switch
+        {
+            "food" or "f" => "Food",
+            "transport" or "t" => "Transport",
+            "utilities" or "u" => "Utilities",
+            "entertainment" or "e" => "Entertainment",
+            "other" or "o" => "Other",
+            _ => null
+        };
     }
 
     /// <summary>
