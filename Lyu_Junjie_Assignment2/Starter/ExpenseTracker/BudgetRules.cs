@@ -125,7 +125,7 @@ public static class BudgetRules
     public static string FormatCurrency(decimal amount)
     {
         // TODO: return FormatCurrency(amount, "$");
-        throw new NotImplementedException();
+        return FormatCurrency(amount, "$");
     }
 
     /// <summary>
@@ -134,7 +134,7 @@ public static class BudgetRules
     public static string FormatCurrency(decimal amount, string currencySymbol)
     {
         // TODO: use a "0.00" format string
-        throw new NotImplementedException();
+        return $"{currencySymbol}{amount:0.00}";
     }
 }
 
