@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DI/DI.csproj" />
+  <Project Path="ocp/ocp.csproj" />
+  <Project Path="SOLID/SOLID.csproj" />
+</Solution>
