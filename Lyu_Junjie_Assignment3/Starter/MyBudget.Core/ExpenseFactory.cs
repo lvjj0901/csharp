@@ -24,7 +24,7 @@ public static class ExpenseFactory
             throw new InvalidExpenseException("Description cannot be blank.");
         }
         amount = ValidateAmount(amount);
-        return new OneTimeExpense(Guid.NewGuid(),description,amount,category,date);
+        return new OneTimeExpense(Guid.NewGuid(),description.Trim(),amount,category,date);
     }
     public static RecurringExpense CreateRecurring(string description, decimal amount,
                                   ExpenseCategory category, DateOnly date, int timesPerMonth)
