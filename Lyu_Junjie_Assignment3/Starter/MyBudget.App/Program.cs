@@ -25,6 +25,8 @@ string dataPath = Path.Combine(AppContext.BaseDirectory, "expenses.json");
 //   - ConsoleApp          (the UI, so it can be resolved below)
 // Choose appropriate service lifetimes (singleton / scoped / transient).
 
+// Singleton is used because this console app is short-lived,
+// and the repository should keep one shared in-memory expense list.
 builder.Services.AddSingleton<IExpenseStore>(new JsonExpenseStore(dataPath));
 builder.Services.AddSingleton<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddSingleton<IBudgetService, BudgetService>();
